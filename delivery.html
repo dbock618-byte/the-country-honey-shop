@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Downloads | The Country Honey Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .download-container {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 4rem auto;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--sunflower);
+            color: var(--dark-slate);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            margin-top: 2rem;
+            transition: transform 0.2s;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">THE COUNTRY HONEY SHOP</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="download-container" id="download-box">
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--sage); margin-bottom: 1.5rem;"></i>
+            <h1>Thank You for Your Purchase!</h1>
+            <p>Your order was successful. Click the button below to download your digital treasures.</p>
+            
+            <div id="product-details" style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 2rem;">
+                <!-- Product name and download link will appear here -->
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
+                A copy of your download link has also been sent to your email. If you have any issues, please <a href="contact.html" style="color: var(--sage); text-decoration: underline;">contact us</a>.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom">
+            &copy; 2026 The Country Honey Shop. All rights reserved.<br>
+            From our farmhouse to yours 🧡
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productDetails = document.getElementById('product-details');
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            
+            if (productId) {
+                const product = products.find(p => p.id === productId);
+                if (product) {
+                    // Map product ID to zip file
+                    const zipMap = {
+                        'prayer-cards': 'prayer-cards.zip',
+                        'checklist-pack': 'checklists.zip',
+                        'faith-journal': 'journals.zip',
+                        'phone-wallpapers': 'wallpapers.zip',
+                        'sticker-sheet-mama': 'sticker-sheet-mama.zip',
+                        'sticker-sheet-faith': 'sticker-sheet-faith.zip'
+                    };
+                    const zipFile = zipMap[productId] || product.image;
+
+                    productDetails.innerHTML = `
+                        <h3 style="margin-bottom: 1rem;">${product.name}</h3>
+                        <a href="downloads/${zipFile}" class="download-btn" download>
+                            <i class="fas fa-download"></i> Download Now
+                        </a>
+                    `;
+                } else {
+                    productDetails.innerHTML = `<p>Product not found. Please check your email for the download link.</p>`;
+                }
+            } else {
+                productDetails.innerHTML = `<p>Please check your email for the download link.</p>`;
+            }
+        });
+    </script>
+<script src="main.js"></script></body>
+</html>

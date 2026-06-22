@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | The Country Honey Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .filter-bar {
+            background-color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--sage);
+            border-radius: 20px;
+            cursor: pointer;
+            background: none;
+            color: var(--sage);
+            font-weight: bold;
+        }
+        .filter-btn.active {
+            background-color: var(--sage);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">THE COUNTRY HONEY SHOP</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="shop.html">Shop <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="shop.html?category=Shirts">Shirts</a>
+                    <a href="shop.html?category=Mugs">Mugs</a>
+                    <a href="shop.html?category=Stickers">Stickers</a>
+                    <a href="shop.html?category=Digital">Digital</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Shop the Collection</h1>
+        <p>Browse our curated selection of country-inspired goods.</p>
+    </header>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" data-category="All">All</button>
+        <button class="filter-btn" data-category="Shirts">Shirts</button>
+        <button class="filter-btn" data-category="Mugs">Mugs</button>
+        <button class="filter-btn" data-category="Stickers">Stickers</button>
+        <button class="filter-btn" data-category="Digital">Digital</button>
+    </div>
+
+    <main class="product-grid" id="shop-grid">
+        <!-- Products will be loaded here -->
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>The Country Honey Shop is dedicated to country-loving women who want faith-filled, farm-chic products that celebrate home and family.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="shop.html">Shop</a></p>
+                <p><a href="about.html">Our Story</a></p>
+                <p><a href="contact.html">Contact Us</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> hello@countryhoneyshop.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Heart of the Country, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 The Country Honey Shop. All rights reserved.<br>
+            From our farmhouse to yours 🧡
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const shopGrid = document.getElementById('shop-grid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            function renderProducts(category = 'All') {
+                shopGrid.innerHTML = '';
+                const filtered = category === 'All' 
+                    ? products 
+                    : products.filter(p => p.category === category);
+                
+                filtered.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <a href="product.html?id=${product.id}">
+                            <img src="${product.image}" alt="${product.name}" class="product-image">
+                        </a>
+                        <div class="product-info">
+                            <span class="product-category">${product.category}</span>
+                            <h3 class="product-name"><a href="product.html?id=${product.id}">${product.name}</a></h3>
+                            <p class="product-price">&dollar;${product.price.toFixed(2)}</p>
+                            <a href="${product.buyLink}" class="buy-btn" target="_blank">Buy Now</a>
+                        </div>
+                    `;
+                    shopGrid.appendChild(card);
+                });
+            }
+
+            // Initial render based on URL param
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            if (categoryParam) {
+                filterBtns.forEach(btn => {
+                    if (btn.dataset.category === categoryParam) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                renderProducts(categoryParam);
+            } else {
+                renderProducts();
+            }
+
+            // Filter button clicks
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderProducts(btn.dataset.category);
+                    
+                    // Update URL without reload
+                    const newUrl = btn.dataset.category === 'All' 
+                        ? 'shop.html' 
+                        : `shop.html?category=${btn.dataset.category}`;
+                    window.history.pushState({path: newUrl}, '', newUrl);
+                });
+            });
+        });
+    </script>
+<script src="main.js"></script></body>
+</html>

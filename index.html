@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Country Honey Shop | Faith-Filled, Farm-Chic Goods</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">THE COUNTRY HONEY SHOP</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="shop.html">Shop <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i></a>
+                <div class="dropdown-content">
+                    <a href="shop.html?category=Shirts">Shirts</a>
+                    <a href="shop.html?category=Mugs">Mugs</a>
+                    <a href="shop.html?category=Stickers">Stickers</a>
+                    <a href="shop.html?category=Digital">Digital</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Faith, Farm & Home</h1>
+        <p>Bringing the Country Mama lifestyle to your doorstep. Explore our collection of faith-filled apparel, farmhouse mugs, and printable treasures.</p>
+        <a href="shop.html" class="btn btn-primary">Shop the Collection</a>
+    </header>
+
+    <section class="categories">
+        <a href="shop.html?category=Shirts" class="category-card">
+            <img src="designs/store/category-tshirts.png" alt="Shirts" class="category-icon">
+            <h3>Country Tees</h3>
+            <p>Soft, comfortable apparel for the modern country woman.</p>
+        </a>
+        <a href="shop.html?category=Mugs" class="category-card">
+            <img src="designs/store/category-mugs.png" alt="Mugs" class="category-icon">
+            <h3>Farmhouse Mugs</h3>
+            <p>Start your "moo-tiful" morning with faith and coffee.</p>
+        </a>
+        <a href="shop.html?category=Stickers" class="category-card">
+            <img src="designs/store/category-stickers.png" alt="Stickers" class="category-icon">
+            <h3>Sticker Packs</h3>
+            <p>Beautiful wildflower and farm-themed stickers for your gear.</p>
+        </a>
+        <a href="shop.html?category=Digital" class="category-card">
+            <img src="designs/store/category-digital.png" alt="Digital" class="category-icon">
+            <h3>Digital Printables</h3>
+            <p>Instant downloads: Prayer cards, checklists, and journals.</p>
+        </a>
+    </section>
+
+    <section style="padding: 4rem 2rem; text-align: center; background-color: white;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">Featured Products</h2>
+        <div class="product-grid" id="featured-products">
+            <!-- Featured products will be loaded here by script -->
+        </div>
+        <div style="margin-top: 3rem;">
+            <a href="shop.html" class="btn btn-primary" style="background-color: var(--sage); color: white;">View All Products</a>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 2rem; text-align: center; background-color: var(--cream);">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Join the Country Mama Club</h2>
+        <p style="margin-bottom: 2rem;">Get farmhouse inspiration, faith-filled updates, and exclusive offers delivered to your inbox.</p>
+        <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+            <input type="email" placeholder="Your email address" style="flex-grow: 1; min-width: 250px;" required>
+            <button type="submit" class="btn btn-primary" style="border: none; cursor: pointer;">Subscribe</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>The Country Honey Shop is dedicated to country-loving women who want faith-filled, farm-chic products that celebrate home and family.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="shop.html">Shop</a></p>
+                <p><a href="about.html">Our Story</a></p>
+                <p><a href="contact.html">Contact Us</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> hello@countryhoneyshop.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Heart of the Country, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 The Country Honey Shop. All rights reserved.<br>
+            From our farmhouse to yours 🧡
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const featuredGrid = document.getElementById('featured-products');
+            // Show first 4 products as featured
+            const featured = products.slice(0, 4);
+            
+            featured.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <a href="product.html?id=${product.id}">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                    </a>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-name"><a href="product.html?id=${product.id}">${product.name}</a></h3>
+                        <p class="product-price">&dollar;${product.price.toFixed(2)}</p>
+                        <a href="${product.buyLink}" class="buy-btn" target="_blank">Buy Now</a>
+                    </div>
+                `;
+                featuredGrid.appendChild(card);
+            });
+        });
+    </script>
+<script src="main.js"></script></body>
+</html>
