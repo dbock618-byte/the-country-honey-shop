@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
-    --sage: #8FBC8F;
+    --sage: #7C9A7C;
     --cream: #FFF8F0;
-    --dusty-rose: #C9A09E;
-    --sunflower: #E8B84B;
+    --blush: #D4A5A5;
+    --gold: #C4A35A;
+    --navy: #3D5A80;
     --dark-slate: #2F4F4F;
+    --warm-tan: #E8DDD0;
 }
 
 body {
@@ -113,7 +115,7 @@ nav {
 }
 
 .btn-primary {
-    background-color: var(--sunflower);
+    background-color: var(--gold);
     color: var(--dark-slate);
 }
 
@@ -170,11 +172,17 @@ nav {
 
 .product-card {
     background-color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .product-image {
@@ -194,7 +202,7 @@ nav {
 
 .product-category {
     font-size: 0.8rem;
-    color: var(--dusty-rose);
+    color: var(--blush);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
@@ -244,7 +252,7 @@ footer {
 
 .footer-section h3 {
     margin-bottom: 1.5rem;
-    color: var(--sunflower);
+    color: var(--gold);
 }
 
 .footer-section p, .footer-section a {
@@ -263,7 +271,7 @@ footer {
 
 /* Pages Styling */
 .page-header {
-    background-color: var(--dusty-rose);
+    background-color: var(--blush);
     color: white;
     padding: 4rem 2rem;
     text-align: center;
