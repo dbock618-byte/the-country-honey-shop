@@ -28,7 +28,7 @@ const products = [
         category: "Digital",
         name: "Country Mama Phone Wallpaper Set",
         price: 3.97,
-        image: "designs/digital/wallpapers/sunflower-faith-wallpaper.png",
+        image: "designs/wallpapers/sunflower-faith-wallpaper.png",
         buyLink: "https://buy.stripe.com/cNi4gzf2KgiV8HpaWRf3a03"
     },
     {
@@ -53,7 +53,7 @@ const products = [
         category: "Digital",
         name: "Bible Verse Art Print Set (Digital)",
         price: 9.97,
-        image: "designs/store-assets/launch-promo.png",
+        image: "designs/wallpapers/blessed-farmhouse-wallpaper.png",
         buyLink: "https://buy.stripe.com/eVqeVdg6Oc2FaPxaWRf3a0o"
     },
     // T-Shirts — using mockup images for professional look
@@ -179,6 +179,55 @@ const products = [
         price: 9.99,
         image: "designs/store-assets/country-mama-stickers-mockup.png",
         buyLink: "https://buy.stripe.com/4gMeVd4o65Ehg9R4ytf3a0f"
+    },
+    // 🆕 LIGHTER & BRIGHTER Products
+    {
+        id: "tshirt-sunshine-grace",
+        category: "Shirts",
+        name: "Sunshine & Grace T-Shirt",
+        price: 29.99,
+        image: "designs/bright/sunshine-grace-tee.png",
+        buyLink: "https://buy.stripe.com/28E6oH6we8Qt0aTghbf3a0p"
+    },
+    {
+        id: "tshirt-bloom-planted",
+        category: "Shirts",
+        name: "Bloom Where You're Planted T-Shirt",
+        price: 29.99,
+        image: "designs/bright/bloom-planted-tee.png",
+        buyLink: "https://buy.stripe.com/5kQ3cv8Em3w99Lt6GBf3a0q"
+    },
+    {
+        id: "tshirt-good-vibes",
+        category: "Shirts",
+        name: "Good Vibes & Farm Life T-Shirt",
+        price: 29.99,
+        image: "designs/bright/good-vibes-tee.png",
+        buyLink: "https://buy.stripe.com/8x23cv1bU1o1e1Jc0Vf3a0r"
+    },
+    {
+        id: "tshirt-wildflower-soul",
+        category: "Shirts",
+        name: "Wildflower Soul T-Shirt",
+        price: 29.99,
+        image: "designs/bright/wildflower-soul-tee.png",
+        buyLink: "https://buy.stripe.com/9B68wP6we2s55vd9SNf3a0t"
+    },
+    {
+        id: "mug-hello-sunshine",
+        category: "Mugs",
+        name: "Hello Sunshine Mug",
+        price: 19.99,
+        image: "designs/bright/hello-sunshine-mug.png",
+        buyLink: "https://buy.stripe.com/9B600jdYG8Qt7Dl8OJf3a0s"
+    },
+    {
+        id: "wallpaper-bright",
+        category: "Digital",
+        name: "Bright & Cheery Wallpaper Set (Digital)",
+        price: 3.97,
+        image: "designs/wallpapers/sunflower-faith-wallpaper.png",
+        buyLink: "https://buy.stripe.com/cNifZhaMu3w9g9R9SNf3a0u"
     }
 ];
 
