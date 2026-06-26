@@ -28,7 +28,7 @@ const products = [
         category: "Digital",
         name: "Country Mama Phone Wallpaper Set",
         price: 3.97,
-        image: "designs/wallpapers/sunflower-faith-wallpaper.png",
+        image: "designs/digital/wallpapers/sunflower-faith-wallpaper.png",
         buyLink: "https://buy.stripe.com/cNi4gzf2KgiV8HpaWRf3a03"
     },
     {
@@ -47,6 +47,16 @@ const products = [
         image: "designs/stickers/wildflower-faith-sticker-sheet.png",
         buyLink: "https://buy.stripe.com/aFabJ11bUeaN8Hpghbf3a05"
     },
+    // Digital products
+    {
+        id: "bible-verse-prints",
+        category: "Digital",
+        name: "Bible Verse Art Print Set (Digital)",
+        price: 9.97,
+        image: "designs/store-assets/launch-promo.png",
+        buyLink: "https://buy.stripe.com/eVqeVdg6Oc2FaPxaWRf3a0o"
+    },
+    // T-Shirts — using mockup images for professional look
     {
         id: "tshirt-cow-wildflower",
         category: "Shirts",
@@ -68,7 +78,7 @@ const products = [
         category: "Shirts",
         name: "Country Mama T-Shirt (Text Design)",
         price: 29.99,
-        image: "designs/tshirts/country-mama-tshirt.png",
+        image: "designs/store-assets/country-mama-tshirt-mockup.png",
         buyLink: "https://buy.stripe.com/eVq28r07Qc2F9Lt4ytf3a08"
     },
     {
@@ -76,15 +86,49 @@ const products = [
         category: "Shirts",
         name: "Country Mama T-Shirt (Floral Wreath)",
         price: 29.99,
-        image: "designs/tshirts/floral-wreath-tshirt.png",
+        image: "designs/store-assets/country-mama-wreath-tshirt-mockup.png",
         buyLink: "https://buy.stripe.com/00w7sL9Iq7Mpe1J3upf3a09"
     },
+    {
+        id: "tshirt-farm-wife",
+        category: "Shirts",
+        name: "Farm Wife T-Shirt",
+        price: 29.99,
+        image: "designs/tshirts/farm-wife-tee.png",
+        buyLink: "https://buy.stripe.com/dRm4gzg6Od6Jg9R0idf3a0j"
+    },
+    {
+        id: "tshirt-ranch-wife",
+        category: "Shirts",
+        name: "Ranch Wife T-Shirt",
+        price: 29.99,
+        image: "designs/store-assets/ranch-wife-tee-mockup.png",
+        buyLink: "https://buy.stripe.com/4gM28r2fYfeR5vd2qlf3a0k"
+    },
+    {
+        id: "tshirt-she-believed",
+        category: "Shirts",
+        name: "She Believed She Could T-Shirt",
+        price: 29.99,
+        image: "designs/tshirts/she-believed-tee.png",
+        buyLink: "https://buy.stripe.com/6oU4gzaMuc2F7Dl8OJf3a0n"
+    },
+    // Hoodie
+    {
+        id: "hoodie-cow-print",
+        category: "Shirts",
+        name: "Cow Print Country Mama Hoodie",
+        price: 39.99,
+        image: "designs/tshirts/cow-print-hoodie-graphic.png",
+        buyLink: "https://buy.stripe.com/9B6fZh3k28Qt0aT6GBf3a0m"
+    },
+    // Mugs — using mockup images for professional look
     {
         id: "mug-cow",
         category: "Mugs",
         name: "Country Mama Mug - Cow Print",
         price: 19.99,
-        image: "designs/mugs/cow-wrap-mug.png",
+        image: "designs/store-assets/cow-wrap-mug-mockup.png",
         buyLink: "https://buy.stripe.com/eVq3cv4o62s55vd0idf3a0a"
     },
     {
@@ -112,11 +156,20 @@ const products = [
         buyLink: "https://buy.stripe.com/28E14n2fY8Qt9Lt2qlf3a0d"
     },
     {
+        id: "mug-coffee-jesus",
+        category: "Mugs",
+        name: "Coffee & Jesus Mug",
+        price: 19.99,
+        image: "designs/store-assets/coffee-jesus-mug-mockup.png",
+        buyLink: "https://buy.stripe.com/28EfZh8EmeaNe1Jfd7f3a0l"
+    },
+    // Sticker Packs
+    {
         id: "sticker-pack-mama",
         category: "Stickers",
         name: "Country Mama Sticker Pack (Physical)",
         price: 9.99,
-        image: "designs/stickers/country-mama-sticker-sheet.png",
+        image: "designs/store-assets/country-mama-stickers-mockup.png",
         buyLink: "https://buy.stripe.com/cNi5kD3k23w9f5N1mhf3a0e"
     },
     {
@@ -124,57 +177,8 @@ const products = [
         category: "Stickers",
         name: "Wildflower Faith Sticker Pack (Physical)",
         price: 9.99,
-        image: "designs/stickers/wildflower-faith-sticker-sheet.png",
+        image: "designs/store-assets/country-mama-stickers-mockup.png",
         buyLink: "https://buy.stripe.com/4gMeVd4o65Ehg9R4ytf3a0f"
-    },
-    // 🆕 NEW PRODUCTS — Market research additions
-    {
-        id: "tshirt-farm-wife",
-        category: "Shirts",
-        name: "Farm Wife T-Shirt",
-        price: 29.99,
-        image: "designs/new-designs/farm-wife-tshirt.png",
-        buyLink: "https://buy.stripe.com/dRm4gzg6Od6Jg9R0idf3a0j"
-    },
-    {
-        id: "tshirt-ranch-wife",
-        category: "Shirts",
-        name: "Ranch Wife T-Shirt",
-        price: 29.99,
-        image: "designs/new-designs/ranch-wife-tshirt.png",
-        buyLink: "https://buy.stripe.com/4gM28r2fYfeR5vd2qlf3a0k"
-    },
-    {
-        id: "tshirt-she-believed",
-        category: "Shirts",
-        name: "She Believed She Could T-Shirt",
-        price: 29.99,
-        image: "designs/new-designs/she-believed-tshirt.png",
-        buyLink: "https://buy.stripe.com/6oU4gzaMuc2F7Dl8OJf3a0n"
-    },
-    {
-        id: "hoodie-cow-print",
-        category: "Shirts",
-        name: "Cow Print Country Mama Hoodie",
-        price: 39.99,
-        image: "designs/new-designs/cow-print-hoodie.png",
-        buyLink: "https://buy.stripe.com/9B6fZh3k28Qt0aT6GBf3a0m"
-    },
-    {
-        id: "mug-coffee-jesus",
-        category: "Mugs",
-        name: "Coffee & Jesus Mug",
-        price: 19.99,
-        image: "designs/new-designs/coffee-jesus-mug.png",
-        buyLink: "https://buy.stripe.com/28EfZh8EmeaNe1Jfd7f3a0l"
-    },
-    {
-        id: "bible-verse-prints",
-        category: "Digital",
-        name: "Bible Verse Art Print Set (Digital)",
-        price: 9.97,
-        image: "designs/new-designs/bible-verse-prints.png",
-        buyLink: "https://buy.stripe.com/eVqeVdg6Oc2FaPxaWRf3a0o"
     }
 ];
 
